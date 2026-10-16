@@ -82,7 +82,7 @@ User B (09:00 Slot) ──┘    Checks schedule hours, past dates, break period
                            [Step 2: Database Atomic Guard]
                            MongoDB Compound Partial Unique Index:
                            { doctorId: 1, appointmentDate: 1, slotTime: 1 }
-                           where: { status: { $ne: "cancelled" } }
+                           where: { isCancelled: false }
                                        │
                       ┌────────────────┴────────────────┐
                       ▼                                 ▼
@@ -103,7 +103,7 @@ User B (09:00 Slot) ──┘    Checks schedule hours, past dates, break period
      { doctorId: 1, appointmentDate: 1, slotTime: 1 },
      {
        unique: true,
-       partialFilterExpression: { status: { $ne: "cancelled" } },
+       partialFilterExpression: { isCancelled: false },
      }
    );
    ```
