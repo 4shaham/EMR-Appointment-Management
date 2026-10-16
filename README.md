@@ -2,6 +2,11 @@
 
 > A production-grade Appointment Management module for an Enterprise Electronic Medical Record (EMR) system built with **Node.js**, **Express**, **TypeScript**, and **MongoDB (Mongoose)**, architected using strict **Clean Architecture** principles and real-time **Socket.IO** synchronization.
 
+### 📚 Primary Technical Documentation
+- 📘 **[Complete REST API Documentation & Payload Reference](file:///c:/work/ERM/API_DOCUMENTATION.md)**
+- 🗄️ **[Database Schema, ER Diagram & Index Architecture](file:///c:/work/ERM/DATABASE_SCHEMA.md)**
+- 🧠 **[Engineering Decisions & Architecture Rationale](file:///c:/work/ERM/ENGINEERING_DECISIONS.md)**
+
 ---
 
 ## Table of Contents
