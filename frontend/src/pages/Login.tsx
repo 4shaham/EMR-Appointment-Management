@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Stethoscope, Lock, Mail, ArrowRight, ShieldCheck, UserCheck } from "lucide-react";
+import {
+  Stethoscope,
+  Lock,
+  Mail,
+  ArrowRight,
+  ShieldCheck,
+  UserCheck,
+} from "lucide-react";
 import { Alert } from "../components/Alert";
 import { ButtonLoader } from "../components/LoadingSpinner";
 
@@ -15,7 +22,9 @@ export const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/dashboard";
+  const from =
+    (location.state as { from?: { pathname: string } })?.from?.pathname ||
+    "/dashboard";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +72,11 @@ export const Login: React.FC = () => {
         <div className="bg-white py-8 px-6 shadow-2xl rounded-2xl sm:px-10 border border-slate-100">
           {error && (
             <div className="mb-5">
-              <Alert type="error" message={error} onClose={() => setError(null)} />
+              <Alert
+                type="error"
+                message={error}
+                onClose={() => setError(null)}
+              />
             </div>
           )}
 
@@ -111,7 +124,10 @@ export const Login: React.FC = () => {
               disabled={isSubmitting}
               className="w-full flex justify-center items-center py-2.5 px-4 border border-transparent rounded-lg shadow-md text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 disabled:opacity-50 transition-all cursor-pointer min-h-[42px]"
             >
-              <ButtonLoader isLoading={isSubmitting} loadingText="Signing in...">
+              <ButtonLoader
+                isLoading={isSubmitting}
+                loadingText="Signing in..."
+              >
                 <span className="inline-flex items-center">
                   <span>Sign In</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -119,47 +135,6 @@ export const Login: React.FC = () => {
               </ButtonLoader>
             </button>
           </form>
-
-          {/* Demo Credentials Quick-Select (Interview Helper) */}
-          <div className="mt-8 pt-6 border-t border-slate-100">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 text-center">
-              Quick Login Demo Profiles
-            </p>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <button
-                type="button"
-                onClick={() => setDemoCredentials("admin@emr.com", "Admin@1234")}
-                className="flex items-center justify-center p-2 rounded-lg border border-purple-200 bg-purple-50 text-purple-700 hover:bg-purple-100 font-medium transition-colors"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 mr-1" />
-                Super Admin
-              </button>
-              <button
-                type="button"
-                onClick={() => setDemoCredentials("receptionist@emr.com", "Recept@1234")}
-                className="flex items-center justify-center p-2 rounded-lg border border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100 font-medium transition-colors"
-              >
-                <UserCheck className="w-3.5 h-3.5 mr-1" />
-                Receptionist
-              </button>
-              <button
-                type="button"
-                onClick={() => setDemoCredentials("dr.arjun@emr.com", "Doctor@1234")}
-                className="flex items-center justify-center p-2 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-medium transition-colors"
-              >
-                <Stethoscope className="w-3.5 h-3.5 mr-1" />
-                Dr. Arjun (Cardio)
-              </button>
-              <button
-                type="button"
-                onClick={() => setDemoCredentials("dr.priya@emr.com", "Doctor@1234")}
-                className="flex items-center justify-center p-2 rounded-lg border border-teal-200 bg-teal-50 text-teal-700 hover:bg-teal-100 font-medium transition-colors"
-              >
-                <Stethoscope className="w-3.5 h-3.5 mr-1" />
-                Dr. Priya (Ortho)
-              </button>
-            </div>
-          </div>
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-400">
